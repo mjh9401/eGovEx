@@ -7,6 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.mvst.edu.service.MemberService;
+import com.mvst.edu.vo.MemberVO;
 
 /** 
  * @author ysk2685
@@ -27,9 +28,10 @@ public class MemberController {
 	 */
 	@RequestMapping("/test")
 	public String memSearch(Model model) {
+		String name = "짱구";
+		MemberVO employee = memberService.test(name);
 		
-		String time = memberService.test();
-		model.addAttribute("time", time);
+		model.addAttribute("employee", employee);
 		
 		return "member/index";
 	}

@@ -2,15 +2,16 @@
 <!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
 
 <configuration>
-    <!-- <typeAliases>
-		<typeAlias alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
-		<typeAlias alias="searchVO" type="egovframework.example.sample.service.SampleDefaultVO"/>
-		<typeAlias alias="sampleVO" type="egovframework.example.sample.service.SampleVO"/> 
-    </typeAliases> -->
     <settings>
     	<!-- 언더스코어(_)를 없애고 낙타표기법으로 자동전환해 줌. 기본값이 false -->
     	<setting name="mapUnderscoreToCamelCase" value="true"/>
-    	<!-- NULL 처리를 위해 NVL, IFNULL 등을 하지 않아도 됨 -->
+    	<!-- NULL 처리를 위해 NVL, IFNULL 등을 하지 않아도 됨--> 
     	<setting name="jdbcTypeForNull" value="NULL"/>
     </settings>
+    <typeAliases>
+		<!--<typeAlias alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+		<typeAlias alias="searchVO" type="egovframework.example.sample.service.SampleDefaultVO"/>
+		<typeAlias alias="sampleVO" type="egovframework.example.sample.service.SampleVO"/> -->
+		<typeAlias alias="memberVO" type="com.mvst.edu.vo.MemberVO"/> 
+    </typeAliases>
 </configuration>

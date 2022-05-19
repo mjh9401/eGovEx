@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import com.mvst.edu.dao.MemberDAO;
 import com.mvst.edu.service.MemberService;
+import com.mvst.edu.vo.MemberVO;
 
 @Service("memberService")
 public class MemberServiceImpl implements MemberService {
@@ -14,8 +15,8 @@ public class MemberServiceImpl implements MemberService {
 	private MemberDAO memberDao;
 	
 	@Override
-	public String test() {
-		String time = memberDao.test();
+	public MemberVO test(String name) {
+		MemberVO time = memberDao.test(name);
 		
 		return time;
 	}

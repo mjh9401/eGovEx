@@ -15,4 +15,7 @@
         <property name="password" value="mvstpgedu"/>
     </bean> 
     
+    <!-- @Mapper 스캔 -->
+    <mybatis-spring:scan base-package="com.mvst.edu.dao"/>
+    
 </beans>
