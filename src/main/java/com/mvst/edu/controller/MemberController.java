@@ -28,7 +28,7 @@ public class MemberController {
 	 */
 	@RequestMapping("/test")
 	public String memSearch(Model model) {
-		String name = "짱구";
+		String name = null;
 		MemberVO employee = memberService.test(name);
 		
 		model.addAttribute("employee", employee);
