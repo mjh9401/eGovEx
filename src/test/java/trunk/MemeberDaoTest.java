@@ -16,6 +16,7 @@ public class MemeberDaoTest {
 	
 	@Autowired
 	private MemberDAO memberDao;
+
 	
 	@Test
 	public void test() {

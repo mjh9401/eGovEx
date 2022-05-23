@@ -13,7 +13,8 @@
         <property name="url" value="jdbc:postgresql://192.168.10.80:5402/mvstedu"/>
         <property name="username" value="edu"/>
         <property name="password" value="mvstpgedu"/>
-    </bean> 
+    </bean>
+    
     
     <!-- @Mapper 스캔 -->
     <mybatis-spring:scan base-package="com.mvst.edu.dao"/>

@@ -2,6 +2,8 @@ package com.mvst.edu.controller;
 
 import javax.annotation.Resource;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,8 +21,9 @@ public class MemberController {
 	/** MemberService*/
 	@Resource(name="memberService")
 	private MemberService memberService;
-	
-	
+	Logger logger = LogManager.getLogger(); 
+	org.apache.logging.log4j.core.Logger targetLogger = (org.apache.logging.log4j.core.Logger) logger;
+
 	/** 
 	 * 테스트 페이지
 	 * @param model : 모델
@@ -29,8 +32,10 @@ public class MemberController {
 	@RequestMapping("/test")
 	public String memSearch(Model model) {
 		String name = null;
-		MemberVO employee = memberService.test(name);
+		targetLogger.debug("변경 전 - debug");
+		targetLogger.error("변경 전 - error");
 		
+		MemberVO employee = memberService.test(name);
 		model.addAttribute("employee", employee);
 		
 		return "member/index";
