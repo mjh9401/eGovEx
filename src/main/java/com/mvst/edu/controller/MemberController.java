@@ -22,7 +22,6 @@ public class MemberController {
 	@Resource(name="memberService")
 	private MemberService memberService;
 	Logger logger = LogManager.getLogger(); 
-	org.apache.logging.log4j.core.Logger targetLogger = (org.apache.logging.log4j.core.Logger) logger;
 
 	/** 
 	 * 테스트 페이지
@@ -32,8 +31,8 @@ public class MemberController {
 	@RequestMapping("/test")
 	public String memSearch(Model model) {
 		String name = null;
-		targetLogger.debug("변경 전 - debug");
-		targetLogger.error("변경 전 - error");
+		logger.debug("변경 전 - debug");
+		logger.error("변경 전 - error");
 		
 		MemberVO employee = memberService.test(name);
 		model.addAttribute("employee", employee);
