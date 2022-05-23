@@ -30,8 +30,8 @@ public class MemberController {
 	 */
 	@RequestMapping("/test")
 	public String memSearch(Model model) {
-		String name = null;
-		logger.debug("변경 전 - debug");
+		String name = "짱구";
+		logger.info("변경 전 - debug");
 		logger.error("변경 전 - error");
 		
 		MemberVO employee = memberService.test(name);
