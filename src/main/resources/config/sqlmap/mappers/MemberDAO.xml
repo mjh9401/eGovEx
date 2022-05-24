@@ -10,7 +10,10 @@
 		<result property="deptId" column="deptId"/>
 	</resultMap>
 	
-	
+	<!-- 
+		직원조회
+		@param name 이름 
+	 -->
 	<select id="test" resultMap="memberMap">
 		select idx,
 		name,

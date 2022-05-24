@@ -16,7 +16,6 @@ import com.mvst.edu.vo.MemberVO;
  * @since 2022.5.13
  */
 @Controller
-@RequestMapping("/member")
 public class MemberController {
 	/** MemberService*/
 	@Resource(name="memberService")
@@ -28,14 +27,13 @@ public class MemberController {
 	 * @param model : 모델
 	 * @return view
 	 */
-	@RequestMapping("/test")
+	@RequestMapping("/member/test")
 	public String memSearch(Model model) {
-		String name = "짱구";
-		logger.info("변경 전 - debug");
-		logger.error("변경 전 - error");
+		//logger.info("변경 전 - debug");
+		//logger.error("변경 전 - error");
 		
-		MemberVO employee = memberService.test(name);
-		model.addAttribute("employee", employee);
+		
+		
 		
 		return "member/index";
 	}

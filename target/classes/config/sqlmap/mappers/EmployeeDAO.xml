@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mvst.edu.dao.EmployeeDAO">
+	
+	<!-- 
+		직원정보 조회
+		@param idx 인덱스
+	 -->
+	<select id="selectByPK" resultType="EmployeeVO">
+		select * from employee
+		where idx = #{idx};
+	</select>
+	
+	<!-- 
+		전체 직원정보 조회
+	 -->
+	<select id="selectAll" resultType="EmployeeVO">
+		select * from employee;
+	</select>
+	
+	<!-- 
+	 	직원정보 조회
+	 	@param deptid 부서번호
+	 -->
+	<select id="selectByDep" resultType="EmployeeVO">
+		select * from employee
+		where deptid = #{deptid};
+	</select>
+	
+	<!-- 
+		직원정보 입력
+		@param name 이름
+		@param deptid 부서번호
+	 -->
+	<insert id="insertEmployee">
+		insert into employee(name,deptId)
+		values(#{name},#{deptid});
+	</insert>
+	
+	<!-- 
+		직원정보 수정
+		@param name 이름
+		@param deptid 부서번호
+		@param idx 인덱스
+	 -->
+	<update id="updateEmployee">
+		update employee 
+		<set>
+			<if test="name != null">
+				name = #{name}
+			</if>
+			<if test="deptId > 0">
+				deptid = #{deptid}
+			</if>
+		</set>
+		where idx = #{idx} 
+	</update>
+	
+	<!-- 
+		직원정보 삭제
+		@param idx 인덱스
+	 -->	
+	<delete id="delteEmploee">
+		delete from employee
+		where idx = #{idx}
+	</delete>
+</mapper>
