@@ -2,6 +2,8 @@ package com.mvst.edu.dao;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
+
 import com.mvst.edu.vo.EmployeeVO;
 
 import egovframework.rte.psl.dataaccess.mapper.Mapper;
@@ -18,7 +20,7 @@ public interface EmployeeDAO {
 	 * @param idx 인덱스
 	 * @return 직원정보
 	 */
-	EmployeeVO selectByPK(int idx);
+	EmployeeVO selectByPK(@Param("idx") int idx);
 	
 	/** 
 	 * 전체 직원 정보 가져오는 메소드
@@ -31,14 +33,14 @@ public interface EmployeeDAO {
 	 * @param deptId
 	 * @return 직원정보
 	 */
-	EmployeeVO selectByDep(int deptId);
+	EmployeeVO selectByDep(@Param("deptid") int deptId);
 	
 	/** 
 	 * 직원 정보 입력 메소드
 	 * @param name 이름
 	 * @param deptid 부서번호
 	 */
-	void insertEmployee(String name,int deptid);
+	void insertEmployee(@Param("name") String name,@Param("deptid") int deptid);
 	
 	/** 
 	 * 직원 정보 수정 메소드
@@ -46,11 +48,11 @@ public interface EmployeeDAO {
 	 * @param name 이름
 	 * @param deptid 부서번호
 	 */
-	void updateEmployee(int idx, String name,int deptid);
+	void updateEmployee(@Param("idx") int idx,@Param("name") String name,@Param("deptid") int deptid);
 	
 	/** 
 	 * 직원 정보 삭제 메소드
 	 * @param idx 인덱스
 	 */
-	void delteEmploee(int idx);
+	void delteEmploee(@Param("idx") int idx);
 }

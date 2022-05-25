@@ -17,7 +17,8 @@
 		전체 직원정보 조회
 	 -->
 	<select id="selectAll" resultType="EmployeeVO">
-		select * from employee;
+		select * from employee
+		order by idx;
 	</select>
 	
 	<!-- 
@@ -46,12 +47,12 @@
 		@param idx 인덱스
 	 -->
 	<update id="updateEmployee">
-		update employee 
+		update public.employee 
 		<set>
 			<if test="name != null">
-				name = #{name}
+				name = #{name},
 			</if>
-			<if test="deptId > 0">
+			<if test="deptid > 0">
 				deptid = #{deptid}
 			</if>
 		</set>
@@ -66,4 +67,5 @@
 		delete from employee
 		where idx = #{idx}
 	</delete>
+	
 </mapper>
