@@ -35,7 +35,7 @@
 		@param name 이름
 		@param deptid 부서번호
 	 -->
-	<insert id="insertEmployee">
+	<insert id="insertEmployee" parameterType="EmployeeVO">
 		insert into employee(name,deptId)
 		values(#{name},#{deptid});
 	</insert>
@@ -46,7 +46,7 @@
 		@param deptid 부서번호
 		@param idx 인덱스
 	 -->
-	<update id="updateEmployee">
+	<update id="updateEmployee" parameterType="EmployeeVO">
 		update public.employee 
 		<set>
 			<if test="name != null">
@@ -63,7 +63,7 @@
 		직원정보 삭제
 		@param idx 인덱스
 	 -->	
-	<delete id="delteEmploee">
+	<delete id="delteEmploee" parameterType="EmployeeVO" >
 		delete from employee
 		where idx = #{idx}
 	</delete>

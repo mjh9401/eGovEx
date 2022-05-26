@@ -43,19 +43,19 @@ public class EmployeeServiceImpl implements EmployeeService {
 	}
 
 	@Override
-	public void insertEmployee(String name, int deptid) {
-		employeeDao.insertEmployee(name, deptid);
+	public void insertEmployee(EmployeeVO employeeVO) {
+		employeeDao.insertEmployee(employeeVO);
 	}
 
 	@Override
-	public void updateEmployee(int idx, String name, int deptid) {
-		employeeDao.updateEmployee(idx, name, deptid);
+	public void updateEmployee(EmployeeVO employeeVO) {
+		employeeDao.updateEmployee(employeeVO);
 		
 	}
 
 	@Override
-	public void delteEmployee(int idx) {
-		employeeDao.delteEmploee(idx);
+	public void delteEmployee(EmployeeVO employeeVO) {
+		employeeDao.delteEmploee(employeeVO);
 	}
 	
 

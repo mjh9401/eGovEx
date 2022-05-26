@@ -60,7 +60,9 @@
 			<button type="button">
 				<a href='../employee/showUpdatingEmployee.do?idx=${employee.idx}&name=${employee.name}&deptid=${employee.deptid}'>수정</a>
 			</button>
-			<input type="button" onclick="location.href='../employee/deleteEmployee.do?idx=${employee.idx}'" value="삭제">
+			<button type="button">
+				<a onclick="if(confirm('정말 삭제하시겠습니까?') == false) return false;" href="../employee/deleteEmployee.do?idx=${employee.idx}">삭제</a>
+			</button>
 			<button onclick="history.back();">뒤로가기</button>
 		</div>
 	</div>

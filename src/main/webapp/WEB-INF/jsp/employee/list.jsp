@@ -42,7 +42,7 @@
 </style>
 <body>
 	<div class="wrap">
-		<h1 class="title">test page</h1>
+		<h1 class="title">전체직원 관리페이지</h1>
 		<table>
 			<tr>
 				<th>번호</th>

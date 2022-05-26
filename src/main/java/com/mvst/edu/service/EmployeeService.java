@@ -32,22 +32,19 @@ public interface EmployeeService {
 	
 	/** 
 	 * 직원정보 입력하는 메소드
-	 * @param name 이름
-	 * @param deptid 부서번호
+	 * @param employeeVO 직원VO
 	 */	
-	public void insertEmployee(String name,int deptid);
+	public void insertEmployee(EmployeeVO employeeVO);
 	
 	/** 
 	 * 직원정보 수정 메소드
-	 * @param idx 인덱스
-	 * @param name 이름
-	 * @param deptid 부서번호
+	 * @param employeeVO 직원VO
 	 */
-	public void updateEmployee(int idx, String name,int deptid);
+	public void updateEmployee(EmployeeVO employeeVO);
 		
 	/** 
 	 * 직원정보 삭제 메소드
-	 * @param idx 인덱스
+	 * @param employeeVO 직원VO
 	 */
-	public void delteEmployee(int idx);
+	public void delteEmployee(EmployeeVO employeeVO);
 }

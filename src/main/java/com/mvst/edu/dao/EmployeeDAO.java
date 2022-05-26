@@ -30,29 +30,26 @@ public interface EmployeeDAO {
 	
 	/** 
 	 * 직원 정보 가져오는 메소드
-	 * @param deptId
+	 * @param deptId 부서번호
 	 * @return 직원정보
 	 */
 	EmployeeVO selectByDep(@Param("deptid") int deptId);
 	
 	/** 
 	 * 직원 정보 입력 메소드
-	 * @param name 이름
-	 * @param deptid 부서번호
+	 * @param employeeVO 직원VO
 	 */
-	void insertEmployee(@Param("name") String name,@Param("deptid") int deptid);
+	void insertEmployee(EmployeeVO employeeVO);
 	
 	/** 
 	 * 직원 정보 수정 메소드
-	 * @param idx 인덱스
-	 * @param name 이름
-	 * @param deptid 부서번호
+	 * @param employeeVO 직원VO
 	 */
-	void updateEmployee(@Param("idx") int idx,@Param("name") String name,@Param("deptid") int deptid);
+	void updateEmployee(EmployeeVO employeeVO);
 	
 	/** 
 	 * 직원 정보 삭제 메소드
-	 * @param idx 인덱스
+	 * @param employeeVO 직원VO
 	 */
-	void delteEmploee(@Param("idx") int idx);
+	void delteEmploee(EmployeeVO employeeVO);
 }
