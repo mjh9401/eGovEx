@@ -7,6 +7,7 @@
 	<!-- 
 		직원정보 조회
 		@param idx 인덱스
+		@return EmployeeVO 직원VO
 	 -->
 	<select id="selectByPK" resultType="EmployeeVO">
 		select * from employee
@@ -15,6 +16,7 @@
 	
 	<!-- 
 		전체 직원정보 조회
+		@return EmployeeVO 직원VO
 	 -->
 	<select id="selectAll" resultType="EmployeeVO">
 		select * from employee
@@ -24,16 +26,17 @@
 	<!-- 
 	 	직원정보 조회
 	 	@param deptid 부서번호
+	 	@return EmployeeVO 직원VO
 	 -->
 	<select id="selectByDep" resultType="EmployeeVO">
 		select * from employee
-		where deptid = #{deptid};
+		where deptid = #{deptid}
+		order by idx;
 	</select>
 	
 	<!-- 
 		직원정보 입력
-		@param name 이름
-		@param deptid 부서번호
+		@param EmployeeVO 직원VO
 	 -->
 	<insert id="insertEmployee" parameterType="EmployeeVO">
 		insert into employee(name,deptId)
@@ -42,9 +45,7 @@
 	
 	<!-- 
 		직원정보 수정
-		@param name 이름
-		@param deptid 부서번호
-		@param idx 인덱스
+		@param EmployeeVO 직원VO
 	 -->
 	<update id="updateEmployee" parameterType="EmployeeVO">
 		update public.employee 
@@ -61,7 +62,7 @@
 	
 	<!-- 
 		직원정보 삭제
-		@param idx 인덱스
+		@param EmployeeVO 직원VO
 	 -->	
 	<delete id="delteEmploee" parameterType="EmployeeVO" >
 		delete from employee

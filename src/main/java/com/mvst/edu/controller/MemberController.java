@@ -16,8 +16,8 @@ import com.mvst.edu.service.MemberService;
 @RequestMapping("/member")
 public class MemberController {
 	/** MemberService*/
-	@Resource(name="memberService")
-	private MemberService memberService;
+	//@Resource(name="memberService")
+	//private MemberService memberService;
 	
 	
 	/** 
@@ -28,8 +28,8 @@ public class MemberController {
 	@RequestMapping("/test")
 	public String memSearch(Model model) {
 		
-		String time = memberService.test();
-		model.addAttribute("time", time);
+		//String time = memberService.test();
+		//model.addAttribute("time", time);
 		
 		return "member/index";
 	}

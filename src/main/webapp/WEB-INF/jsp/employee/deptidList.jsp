@@ -1,17 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
     
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>테스트 페이지</title>
+<title>부서번호</title>
 </head>
 <style>
-	a{
-		text-decoration: none;
-		color:inherit;
-	}
 	td,th{
 		padding:10px 90px;
 		text-align: center;
@@ -43,29 +40,27 @@
 }
 </style>
 <body>
-	<div>
-		<h1 class="title">직원 상세페이지</h3>
+<div>
+	<h1 class="title">직원 상세페이지</h3>
 		<table>
 			<tr>
 				<th>번호</th>
 				<th>이름</th>
 				<th>부서번호</th>
 			</tr>
-			<tr>
-				<td>${employee.idx}</td>
-				<td>${employee.name}</td>
-				<td>${employee.deptid}</td>
-			</tr>
+			<c:forEach items="${employeeList}" var="employeeVO">
+				<tr>
+					<td>${employeeVO.idx}</td>
+					<td>
+						<a href="../employee/getEmployee.do?idx=${employeeVO.idx}">${employeeVO.name}</a>
+					</td>
+					<td>${employeeVO.deptid}</td>
+				</tr>
+			</c:forEach>
 		</table>
 		<div class="btngroup">
-			<button type="button">
-				<a href='../employee/showUpdatingEmployee.do?idx=${employee.idx}&name=${employee.name}&deptid=${employee.deptid}'>수정</a>
-			</button>
-			<button type="button">
-				<a onclick="if(confirm('정말 삭제하시겠습니까?') == false) return false;" href="../employee/deleteEmployee.do?idx=${employee.idx}">삭제</a>
-			</button>
 			<button onclick="history.back();">뒤로가기</button>
 		</div>
-	</div>
+</div>
 </body>
 </html>

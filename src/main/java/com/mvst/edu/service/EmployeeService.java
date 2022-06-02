@@ -26,9 +26,9 @@ public interface EmployeeService {
 	/** 
 	 * 직원정보 가져오는 메소드
 	 * @param deptid 부서번호
-	 * @return 직원정보
+	 * @return 직원정보 리스트
 	 */
-	public EmployeeVO selectByDep(int deptid);
+	public List<EmployeeVO> selectByDep(int deptid);
 	
 	/** 
 	 * 직원정보 입력하는 메소드

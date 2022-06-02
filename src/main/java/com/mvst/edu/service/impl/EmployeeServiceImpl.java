@@ -36,10 +36,10 @@ public class EmployeeServiceImpl implements EmployeeService {
 	}
 
 	@Override
-	public EmployeeVO selectByDep(int deptid) {
-		EmployeeVO employeeVO = employeeDao.selectByDep(deptid);
+	public List<EmployeeVO> selectByDep(int deptid) {
+		List<EmployeeVO> employeeList = employeeDao.selectByDep(deptid);
 		
-		return employeeVO;
+		return employeeList;
 	}
 
 	@Override
@@ -50,7 +50,6 @@ public class EmployeeServiceImpl implements EmployeeService {
 	@Override
 	public void updateEmployee(EmployeeVO employeeVO) {
 		employeeDao.updateEmployee(employeeVO);
-		
 	}
 
 	@Override

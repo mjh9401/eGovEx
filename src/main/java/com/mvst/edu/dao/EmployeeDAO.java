@@ -31,9 +31,9 @@ public interface EmployeeDAO {
 	/** 
 	 * 직원 정보 가져오는 메소드
 	 * @param deptId 부서번호
-	 * @return 직원정보
+	 * @return 직원정보 리스트
 	 */
-	EmployeeVO selectByDep(@Param("deptid") int deptId);
+	List<EmployeeVO> selectByDep(@Param("deptid") int deptId);
 	
 	/** 
 	 * 직원 정보 입력 메소드
