@@ -1,21 +1,12 @@
 package com.mvst.edu.controller;
 
-import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.List;
 
 import javax.annotation.Resource;
-import javax.servlet.http.HttpServletResponse;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.mvst.edu.service.EmployeeService;
 import com.mvst.edu.vo.EmployeeVO;
@@ -28,7 +19,7 @@ import com.mvst.edu.vo.EmployeeVO;
 @Controller
 public class EmployeeController {
 	/** logger */
-	Logger logger = LogManager.getLogger();
+	//Logger logger = LogManager.getLogger();
 	/** EmployeeService */
 	@Resource(name = "EmployeeService")
 	private EmployeeService EmployeeService;
@@ -88,23 +79,20 @@ public class EmployeeController {
 	/**
 	 * 직원정보 추가 메소드
 	 * @param employeeVO 직원VO
-	 * @param response response
+	 * @param model 모델
 	 * @return view
-	 * @throws IOException
 	 */
 	@RequestMapping("/employee/insertEmployee")
-	@ResponseBody
-	public ResponseEntity<String> insertEmployee(EmployeeVO employeeVO){
-		EmployeeService.insertEmployee(employeeVO);
+	public String insertEmployee(Model model,EmployeeVO employeeVO){
+		int resultInsertNumber = EmployeeService.insertEmployee(employeeVO);
 		
-		String Script = "<script>"
-				+ "alert('직원정보가 입력됐습니다.'); "
-				+ "location.href='../employee/getEmployeeList.do';"
-				+ "</script>";
-		HttpHeaders responseHeaders = new HttpHeaders();
-		responseHeaders.add("Content-type", "text/html;charset=utf8");
+		if(resultInsertNumber > 0) {
+			model.addAttribute("resultInesrtNumber", resultInsertNumber);
+		} else {
+			model.addAttribute("resultInsertNubmer", null);			
+		}
 		
-		return new ResponseEntity<String>(Script,responseHeaders,HttpStatus.OK);
+		return "employee/result";
 	}
 
 	/**
@@ -123,37 +111,39 @@ public class EmployeeController {
 	/**
 	 * 직원정보 수정메소드
 	 * @param employeeVO 직원VO
-	 * @param response response
+	 * @param model 모델
 	 * @return view
-	 * @throws IOException
 	 */
 	@RequestMapping("/employee/updateEmployee")
-	@ResponseBody
-	public void updateEmployee(EmployeeVO employeeVO, HttpServletResponse response) throws IOException {
-		EmployeeService.updateEmployee(employeeVO);
-
-		// 메소드 실행결과를 alert창으로 띄우는 코드
-		response.setContentType("text/html; charset=UTF-8");
-		PrintWriter out = response.getWriter();
-		out.println("<script>alert('직원정보가 수정됐습니다.'); location.href='../employee/getEmployeeList.do';</script>");
+	public String updateEmployee(Model model,EmployeeVO employeeVO){
+		int resultUpdateNumber = EmployeeService.updateEmployee(employeeVO);
+		
+		if(resultUpdateNumber > 0) {
+			model.addAttribute("resultUpdateNumber", resultUpdateNumber);
+		}else {
+			model.addAttribute("resultUpdateNumber",null);
+		}
+		
+		return "employee/result";
 	}
 
 	/**
 	 * 직원정보 삭제 메소드
 	 * @param employeeVO 직원VO
-	 * @param response response
+	 * @param model 모델
 	 * @return view
-	 * @throws IOException 
 	 */
 	@RequestMapping("/employee/deleteEmployee")
-	@ResponseBody
-	public void deleteEmployee(EmployeeVO employeeVO,HttpServletResponse response) throws IOException {
-		EmployeeService.delteEmployee(employeeVO);
-		 
-		// 메소드 실행결과를 alert창으로 띄우는 코드
-		response.setContentType("text/html; charset=UTF-8");
-		PrintWriter out = response.getWriter();
-		out.println("<script>alert('직원정보가 삭제됐습니다.'); location.href='../employee/getEmployeeList.do';</script>");
+	public String deleteEmployee(Model model,EmployeeVO employeeVO){
+		int resultDeleteNumber= EmployeeService.delteEmployee(employeeVO);
+
+		if(resultDeleteNumber > 0) {
+			model.addAttribute("resultDeleteNumber", resultDeleteNumber);
+		}else {
+			model.addAttribute("resultDeleteNumber",null);
+		}
+		
+		return "employee/result";
 	}
 
 }

@@ -17,7 +17,7 @@ import com.mvst.edu.vo.EmployeeVO;
  */
 @Service("EmployeeService")
 public class EmployeeServiceImpl implements EmployeeService {
-	/*EmployeeDAO*/
+	/**EmployeeDAO*/
 	@Resource(name="employeeDAO")
 	private EmployeeDAO employeeDao;
 
@@ -43,18 +43,24 @@ public class EmployeeServiceImpl implements EmployeeService {
 	}
 
 	@Override
-	public void insertEmployee(EmployeeVO employeeVO) {
-		employeeDao.insertEmployee(employeeVO);
+	public int insertEmployee(EmployeeVO employeeVO) {
+		int reusltNum= employeeDao.insertEmployee(employeeVO);
+		
+		return reusltNum;
 	}
 
 	@Override
-	public void updateEmployee(EmployeeVO employeeVO) {
-		employeeDao.updateEmployee(employeeVO);
+	public int updateEmployee(EmployeeVO employeeVO) {
+		int updateNum = employeeDao.updateEmployee(employeeVO);
+		
+		return updateNum;
 	}
 
 	@Override
-	public void delteEmployee(EmployeeVO employeeVO) {
-		employeeDao.delteEmploee(employeeVO);
+	public int delteEmployee(EmployeeVO employeeVO) {
+		int deleteNum = employeeDao.delteEmploee(employeeVO);
+		
+		return deleteNum;
 	}
 	
 

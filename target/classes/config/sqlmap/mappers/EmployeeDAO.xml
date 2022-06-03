@@ -11,7 +11,7 @@
 	 -->
 	<select id="selectByPK" resultType="EmployeeVO">
 		select * from employee
-		where idx = #{idx};
+		where idx = #{idx}
 	</select>
 	
 	<!-- 
@@ -20,7 +20,7 @@
 	 -->
 	<select id="selectAll" resultType="EmployeeVO">
 		select * from employee
-		order by idx;
+		order by idx
 	</select>
 	
 	<!-- 

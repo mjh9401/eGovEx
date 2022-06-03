@@ -39,17 +39,17 @@ public interface EmployeeDAO {
 	 * 직원 정보 입력 메소드
 	 * @param employeeVO 직원VO
 	 */
-	void insertEmployee(EmployeeVO employeeVO);
+	int insertEmployee(EmployeeVO employeeVO);
 	
 	/** 
 	 * 직원 정보 수정 메소드
 	 * @param employeeVO 직원VO
 	 */
-	void updateEmployee(EmployeeVO employeeVO);
+	int updateEmployee(EmployeeVO employeeVO);
 	
 	/** 
 	 * 직원 정보 삭제 메소드
 	 * @param employeeVO 직원VO
 	 */
-	void delteEmploee(EmployeeVO employeeVO);
+	int delteEmploee(EmployeeVO employeeVO);
 }

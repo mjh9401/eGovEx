@@ -15,36 +15,36 @@ public interface EmployeeService {
 	 * @param idx 인덱스
 	 * @return 직원정보
 	 */
-	public EmployeeVO selectByPK(int idx);
+	EmployeeVO selectByPK(int idx);
 	
 	/** 
 	 * 직원정보 리스트 가져오는 메소드
 	 * @return 직원정보 리스트
 	 */
-	public List<EmployeeVO> selectAll();
+	List<EmployeeVO> selectAll();
 	
 	/** 
 	 * 직원정보 가져오는 메소드
 	 * @param deptid 부서번호
 	 * @return 직원정보 리스트
 	 */
-	public List<EmployeeVO> selectByDep(int deptid);
+	List<EmployeeVO> selectByDep(int deptid);
 	
 	/** 
 	 * 직원정보 입력하는 메소드
 	 * @param employeeVO 직원VO
 	 */	
-	public void insertEmployee(EmployeeVO employeeVO);
+	public int insertEmployee(EmployeeVO employeeVO);
 	
 	/** 
 	 * 직원정보 수정 메소드
 	 * @param employeeVO 직원VO
 	 */
-	public void updateEmployee(EmployeeVO employeeVO);
+	public int updateEmployee(EmployeeVO employeeVO);
 		
 	/** 
 	 * 직원정보 삭제 메소드
 	 * @param employeeVO 직원VO
 	 */
-	public void delteEmployee(EmployeeVO employeeVO);
+	public int delteEmployee(EmployeeVO employeeVO);
 }

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
 <!DOCTYPE html>
 <html>
 <head>
@@ -32,30 +33,31 @@
 </style>
 <body>
 	<h1>직원정보 추가 페이지</h1>
-	<div class="wrap">
-		<form action="../employee/insertEmployee.do" method="post" onsubmit="return check(this);">
-			<table>
-				<tr>
-					<th>이름</th>
-					<td>
-						<input type="text" class="name" name = "name" required="required" placeholder="이름을 입력해주세요">
-					</td>	
-				</tr>
-				<tr>
-					<th>부서번호</th>
-					<td>
-						<input type="text" class="deptid" name = "deptid" required="required" placeholder="부서번호를 입력해주세요">				
-					</td>
-				</tr>
-			</table>
-			<div class="btngroup">
-				<input type="submit" value="완료">
-				<input type="button" onclick="history.back();" value="뒤로가기">
-			</div> 
-		</form>
-	</div>
+		<div class="wrap">
+			<form action="../employee/insertEmployee.do" method="post" onsubmit="return check(this);">
+				<table>						
+					<tr>
+						<th>이름</th>
+						<td>
+							<input type="text" class="name" name = "name" required="required" placeholder="이름을 입력해주세요">
+						</td>	
+					</tr>
+					<tr>
+						<th>부서번호</th>
+						<td>
+							<input type="text" class="deptid" name = "deptid" required="required" placeholder="부서번호를 입력해주세요">				
+						</td>
+						</tr>
+				</table>
+				<div class="btngroup">
+					<input type="submit" value="완료">
+					<input type="button" onclick="history.back();" value="뒤로가기">
+				</div> 
+			</form>			
+		</div>
+
 	<script>
-		// input 데이터 공백체크
+		//input 데이터 공백체크
 		function check(form){
 			form.name.value = form.name.value.trim();
 			form.deptid.value = form.deptid.value.trim();
@@ -72,7 +74,7 @@
 			
 			return true;
 		}
-	
+
 	</script>
 	
 </body>
