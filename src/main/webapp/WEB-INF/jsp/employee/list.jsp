@@ -49,17 +49,26 @@
 				<th>이름</th>
 				<th>부서번호</th>
 			</tr>
+			
 			<c:forEach items="${employeeList}" var="employeeVO">
+				<c:set var= "employee" value="${employeeVO}"/>
 				<tr>
-					<td>${employeeVO.idx}</td>
 					<td>
-						<a href="../employee/getEmployee.do?idx=${employeeVO.idx}">${employeeVO.name}</a>
+						<c:out value="${employee.idx}"/>
 					</td>
 					<td>
-						<a href="../employee/getEmployeeByDep.do?deptId=${employeeVO.deptid}">${employeeVO.deptid}</a>
+						<a href="../employee/getEmployee.do?idx=<c:out value="${employee.idx}"/>">
+							<c:out value="${employee.name}"/> 
+						</a>
+					</td>
+					<td>
+						<a href="../employee/getEmployeeByDep.do?deptId=<c:out value="${employee.deptid}"/>">
+							<c:out value="${employee.deptid}"/> 
+						</a>
 					</td>
 				</tr>			
-			</c:forEach>	
+			</c:forEach>
+				
 		</table>
 		<button onclick="location.href='/fmis/employee/showInsertingEmployee.do'">직원정보추가</button>
 	</div>

@@ -49,12 +49,19 @@
 				<th>부서번호</th>
 			</tr>
 			<c:forEach items="${employeeList}" var="employeeVO">
+				<c:set var="employee" value="${employeeVO}"/>				
 				<tr>
-					<td>${employeeVO.idx}</td>
 					<td>
-						<a href="../employee/getEmployee.do?idx=${employeeVO.idx}">${employeeVO.name}</a>
+						<c:out value="${employee.idx}"/>
 					</td>
-					<td>${employeeVO.deptid}</td>
+					<td>
+						<a href="../employee/getEmployee.do?idx=<c:out value="${employee.idx}"/>">
+							<c:out value="${employee.name}"/>
+						</a>
+					</td>
+					<td>
+						<c:out value="${employee.deptid}"/>
+					</td>
 				</tr>
 			</c:forEach>
 		</table>

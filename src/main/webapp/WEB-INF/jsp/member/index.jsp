@@ -4,6 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<script src="../../lib/jquery-3.6.0.min.js"/>
 <title>Insert title here</title>
 </head>
 <body>

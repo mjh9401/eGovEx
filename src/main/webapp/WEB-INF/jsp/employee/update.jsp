@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
 <!DOCTYPE html>
 <html>
 <head>
@@ -38,19 +39,22 @@
 				<tr>
 					<th>번호</th>
 					<td>
-						<input type="text" name = "idx" readonly="readonly" value="${employeeVO.idx}" >				
+						<input type="text" name = "idx" readonly="readonly" 
+						 value= <c:out value="${employeeVO.idx}"/> >				
 					</td>
 				</tr>
 				<tr>
 					<th>이름</th>
 					<td>
-						<input type="text" name = "name" required="required" value="${employeeVO.name}">
+						<input type="text" name = "name" required="required" 
+						 value= <c:out value="${employeeVO.name}"/> >
 					</td>	
 				</tr>
 				<tr>
 					<th>부서번호</th>
 					<td>
-						<input type="text" name = "deptid" required="required" value="${employeeVO.deptid}">				
+						<input type="text" name = "deptid" required="required"
+						 value= <c:out value="${employeeVO.deptid}"/> >				
 					</td>
 				</tr>
 			</table> 
