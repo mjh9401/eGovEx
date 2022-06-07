@@ -1,5 +1,7 @@
 package com.mvst.edu.controller;
 
+import java.util.Date;
+
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Controller;
@@ -28,8 +30,8 @@ public class MemberController {
 	@RequestMapping("/test")
 	public String memSearch(Model model) {
 		
-		//String time = memberService.test();
-		//model.addAttribute("time", time);
+		Date date = new java.util.Date(); 
+		model.addAttribute("date", date);
 		
 		return "member/index";
 	}

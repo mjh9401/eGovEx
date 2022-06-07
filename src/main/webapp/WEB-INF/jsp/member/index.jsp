@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>    
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,9 +10,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<div>
-		<h3>test page</h3>
-		<h3>현재시간 : ${time}</h3>
-	</div>
+	<h1>안녕하세요</h1>
 </body>
 </html>

@@ -65,10 +65,12 @@
 			</tr>
 		</table>
 		<div class="btngroup">
-			<button type="button">
-				<a href='../employee/showUpdatingEmployee.do?idx=<c:out value="${employee.idx}"/>
-				&name=<c:out value="${employee.name}"/>&deptid=<c:out value="${employee.deptid}"/>'>수정</a>
-			</button>
+			<form action="../employee/showUpdatingEmployee.do" method="post">
+				<input type="hidden" name = "idx" value="${employee.idx}">
+				<input type="hidden" name = "name" value="${employee.name}">
+				<input type="hidden" name = "deptid" value="${employee.deptid}">
+				<button type="submit">수정</button>
+			</form>
 			<button type="button">
 				<a onclick="if(confirm('정말 삭제하시겠습니까?') == false) return false;"
 				href="../employee/deleteEmployee.do?idx=<c:out value="${employee.idx}"/>">삭제</a>

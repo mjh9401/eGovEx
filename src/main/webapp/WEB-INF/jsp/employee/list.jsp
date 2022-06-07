@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -43,6 +44,17 @@
 <body>
 	<div class="wrap">
 		<h1 class="title">전체직원 관리페이지</h1>
+		<!--<p><c:out value="${date}"/></p>-->
+		<c:set var="dt" value="${date}"/>
+		<!--<span><fmt:formatDate value="${dt}" type="date"/></span>
+		<span><fmt:formatDate value="${dt}" type="time"/></span>
+		<span><fmt:formatDate value="${dt}" type="both"/></span>
+		<span><fmt:formatDate value="${dt}" type="both" dateStyle="default" timeStyle="default"/></span>
+		<span><fmt:formatDate value="${dt}" type="both" dateStyle="short" timeStyle="short"/></span>
+		<span><fmt:formatDate value="${dt}" type="both" dateStyle="medium" timeStyle="medium"/></span>
+		<span><fmt:formatDate value="${dt}" type="both" dateStyle="long" timeStyle="long"/></span>
+		<span><fmt:formatDate value="${dt}" type="both" dateStyle="full" timeStyle="full"/></span>-->
+		<span><fmt:formatDate value="${dt}" type="both" pattern="YYYY년 MM월 DD일 HH시 MM분 ss초 E요일"/></span>
 		<table>
 			<tr>
 				<th>번호</th>
