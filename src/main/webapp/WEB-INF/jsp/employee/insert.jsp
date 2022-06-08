@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+    
 <!DOCTYPE html>
 <html>
 <head>
@@ -34,6 +36,27 @@
 <body>
 	<h1>직원정보 추가 페이지</h1>
 		<div class="wrap">
+			<form:form action="../employee/insertEmployee.do" modelAttribute="employeeVO" onsubmit="return check(this);">
+				<table>						
+					<tr>
+						<th>이름</th>
+						<td>
+							<form:input path="name" required="required" placeholder="이름을 입력해주세요"/>
+						</td>	
+					</tr>
+					<tr>
+						<th>부서번호</th>
+						<td>
+							<form:input path="deptid" required="required" placeholder="부서번호를 입력해주세요"/>				
+						</td>
+						</tr>
+				</table>
+				<div class="btngroup">
+					<input type="submit" value="완료">
+					<input type="button" onclick="history.back();" value="뒤로가기">
+				</div>
+			</form:form>
+			<!-- 
 			<form action="../employee/insertEmployee.do" method="post" onsubmit="return check(this);">
 				<table>						
 					<tr>
@@ -53,7 +76,7 @@
 					<input type="submit" value="완료">
 					<input type="button" onclick="history.back();" value="뒤로가기">
 				</div> 
-			</form>			
+			</form>	 -->		
 		</div>
 
 	<script>
@@ -68,6 +91,9 @@
 			}
 			
 			if(form.deptid.value.length == 0){
+				alert("다시 입력해주세요");
+				return false;
+			}else if(form.deptid.value == 0){
 				alert("다시 입력해주세요");
 				return false;
 			}

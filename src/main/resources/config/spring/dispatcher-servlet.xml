@@ -11,7 +11,10 @@
     <context:component-scan base-package="com.mvst.edu" use-default-filters="false">
         <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller" />
     </context:component-scan>
- 
+ 	
+ 	<!-- localde Resolver 등록 -->
+ 	<bean id="localeResolver" class="org.springframework.web.servlet.i18n.SessionLocaleResolver" />
+ 	
  	<!-- View Resolver 설정 -->
     <bean id="viewResolver" class="org.springframework.web.servlet.view.UrlBasedViewResolver">
         <property name="viewClass" value="org.springframework.web.servlet.view.JstlView" />

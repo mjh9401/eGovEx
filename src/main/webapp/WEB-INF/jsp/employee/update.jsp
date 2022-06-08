@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>    
 <!DOCTYPE html>
 <html>
 <head>
@@ -34,7 +35,33 @@
 <body>
 	<h1>직원정보 수정 페이지</h1>
 	<div class="wrap">
-		<form action="../employee/updateEmployee.do" method="post" onsubmit="return check(this);">
+		<form:form modelAttribute="employeeVO" action="../employee/updateEmployee.do" onsubmit="return check(this);">
+			<table>
+				<tr>
+					<th>번호</th>
+					<td>
+						<form:input path="idx"/>
+					</td>
+				</tr>
+				<tr>
+					<th>이름</th>
+					<td>
+						<form:input path="name"/>
+					</td>	
+				</tr>
+				<tr>
+					<th>부서번호</th>
+					<td>
+						<form:input path="deptid"/>
+					</td>
+				</tr>
+			</table> 
+			<div class="btngroup">
+				<input type="submit" value="완료">
+				<input type="button" onclick="history.back();" value="뒤로가기">
+			</div>
+		</form:form>
+		<!--<form action="../employee/updateEmployee.do" method="post" onsubmit="return check(this);">
 			<table>
 				<tr>
 					<th>번호</th>
@@ -62,7 +89,7 @@
 				<input type="submit" value="완료">
 				<input type="button" onclick="history.back();" value="뒤로가기">
 			</div>
-		</form>
+		</form>-->
 	</div>
 	<script>
 		// input 데이터 공백체크

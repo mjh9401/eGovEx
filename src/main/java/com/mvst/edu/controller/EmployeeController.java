@@ -72,11 +72,13 @@ public class EmployeeController {
 
 	/**
 	 * 직원정보 추가 페이지이동 메소드
+	 * @param employeeVO 직원VO
+	 * @param model 모델
 	 * @return view
 	 */
 	@RequestMapping("/employee/showInsertingEmployee")
-	public String showInsertingEmployee() {
-
+	public String showInsertingEmployee(Model model,EmployeeVO employeeVO) {
+		model.addAttribute("employeeVO", employeeVO);
 		return "employee/insert";
 	}
 
