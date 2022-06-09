@@ -34,6 +34,13 @@
 		order by idx;
 	</select>
 	
+	
+	<select id="getEmployeeCount" resultType="int">
+		select count(*) from employee;
+	</select>
+	
+	
+	
 	<!-- 
 		직원정보 입력
 		@param EmployeeVO 직원VO

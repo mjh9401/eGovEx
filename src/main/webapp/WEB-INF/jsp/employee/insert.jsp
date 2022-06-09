@@ -8,6 +8,7 @@
 <head>
 <meta charset="UTF-8">
 <title>테스트 페이지</title>
+<script src="../../lib/jquery-3.6.0.min.js"></script>
 </head>
 <style>
 	h1{
@@ -76,7 +77,7 @@
 					<input type="submit" value="완료">
 					<input type="button" onclick="history.back();" value="뒤로가기">
 				</div> 
-			</form>	 -->		
+			</form> -->		
 		</div>
 
 	<script>
@@ -91,10 +92,10 @@
 			}
 			
 			if(form.deptid.value.length == 0){
-				alert("다시 입력해주세요");
+				alert("직원번호를 다시 입력해주세요");
 				return false;
 			}else if(form.deptid.value == 0){
-				alert("다시 입력해주세요");
+				alert("직원번호를 입력해주세요");
 				return false;
 			}
 			

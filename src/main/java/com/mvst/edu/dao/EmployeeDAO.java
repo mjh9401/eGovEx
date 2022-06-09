@@ -52,4 +52,10 @@ public interface EmployeeDAO {
 	 * @param employeeVO 직원VO
 	 */
 	int delteEmploee(EmployeeVO employeeVO);
+
+	/** 
+	 * 직원 총합 구하는 메소드
+	 * @return 직원 초합
+	 */
+	int getEmployeeCount();
 }

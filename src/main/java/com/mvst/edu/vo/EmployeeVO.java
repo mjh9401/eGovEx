@@ -9,6 +9,7 @@ public class EmployeeVO {
 	/** 부서이름 (deptid, integer, nullable:NO) */
 	private int deptid;
 	
+	
 	public int getIdx() {
 		return idx;
 	}

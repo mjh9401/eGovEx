@@ -30,6 +30,8 @@ public class EmployeeServiceImpl implements EmployeeService {
 
 	@Override
 	public List<EmployeeVO> selectAll() {
+		
+		
 		List<EmployeeVO> employeeList = employeeDao.selectAll();
 		
 		return employeeList;
@@ -61,6 +63,13 @@ public class EmployeeServiceImpl implements EmployeeService {
 		int deleteNum = employeeDao.delteEmploee(employeeVO);
 		
 		return deleteNum;
+	}
+
+	@Override
+	public int getEmployeeCount() {
+		int totalEmployeeCount = employeeDao.getEmployeeCount();
+		
+		return totalEmployeeCount;
 	}
 	
 

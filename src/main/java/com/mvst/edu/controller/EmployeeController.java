@@ -1,6 +1,5 @@
 package com.mvst.edu.controller;
 
-import java.util.Date;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -14,7 +13,7 @@ import com.mvst.edu.vo.EmployeeVO;
 
 /**
  * 직원컨트롤러
- * @author ysk2685
+ * @author mjh
  * @since 2022.5.13
  */
 @Controller
@@ -47,11 +46,9 @@ public class EmployeeController {
 	 */
 	@RequestMapping("/employee/getEmployeeList")
 	public String employeeListSearchByIdx(Model model) {
+	
 		List<EmployeeVO> employeeList = EmployeeService.selectAll();
-		Date date = new java.util.Date();
-		
 		model.addAttribute("employeeList", employeeList);
-		model.addAttribute("date", date);
 		
 		return "employee/list";
 	}
@@ -65,6 +62,7 @@ public class EmployeeController {
 	@RequestMapping("/employee/getEmployeeByDep")
 	public String searchEmployeeByDepid(Model model,int deptId) {
 		List<EmployeeVO> employeeList = EmployeeService.selectByDep(deptId);
+
 		model.addAttribute("employeeList", employeeList);
 
 		return "employee/deptidList";

@@ -47,8 +47,8 @@
 	<div class="wrap">
 		<h1 class="title">전체직원 관리페이지</h1>
 		<c:set var="dt" value="${date}"/>
-		<span><fmt:formatDate value="${dt}" type="both" pattern="yyyy년 mm월 dd일 HH시 MM분 ss초 E요일"/></span>
-		<span><spring:message code="hello" text="no_message"/></span>
+		<!--<span><fmt:formatDate value="${dt}" type="both" pattern="yyyy년 MM월 dd일 HH시 MM분 ss초 E요일"/></span> -->
+		<!--<span><spring:message code="hello" text="no_message"/></span>-->
 		<table>
 			<tr>
 				<th>번호</th>
@@ -75,6 +75,7 @@
 				</tr>			
 			</c:forEach>
 		</table>
+			
 		<button onclick="location.href='/fmis/employee/showInsertingEmployee.do'">직원정보추가</button>
 	</div>
 </body>
