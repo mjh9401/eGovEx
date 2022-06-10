@@ -18,9 +18,10 @@
 		전체 직원정보 조회
 		@return EmployeeVO 직원VO
 	 -->
-	<select id="selectAll" resultType="EmployeeVO">
+	<select id="selectAll" parameterType="PageVO" resultType="EmployeeVO">
 		select * from employee
 		order by idx
+		limit #{articlePerAPage} offset #{limitStart}
 	</select>
 	
 	<!-- 
@@ -34,7 +35,10 @@
 		order by idx;
 	</select>
 	
-	
+	<!--
+		전체 직원정보 수 조회
+		@return int 전체직원 수 
+	-->
 	<select id="getEmployeeCount" resultType="int">
 		select count(*) from employee;
 	</select>

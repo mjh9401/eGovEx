@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
 import com.mvst.edu.vo.EmployeeVO;
+import com.mvst.edu.vo.PageVO;
 
 /** 
  * EmployeeService
@@ -21,11 +22,10 @@ public interface EmployeeService {
 	
 	/** 
 	 * 직원정보 리스트 가져오는 메소드
-	 * @param recordCountPerPage 한 페이지당 게시글 수
-	 * @param currentPage 현재 페이지
+	 * @param pageVO 페이지VO 
 	 * @return 직원정보 리스트
 	 */
-	List<EmployeeVO> selectAll();
+	List<EmployeeVO> selectAll(PageVO pageVO);
 	
 	/** 
 	 * 직원정보 가져오는 메소드

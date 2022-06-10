@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
 import com.mvst.edu.vo.EmployeeVO;
+import com.mvst.edu.vo.PageVO;
 
 import egovframework.rte.psl.dataaccess.mapper.Mapper;
 
@@ -24,9 +25,10 @@ public interface EmployeeDAO {
 	
 	/** 
 	 * 전체 직원 정보 가져오는 메소드
+	 * @param pageVO 페이지VO
 	 * @return 직원정보 리스트
 	 */
-	List<EmployeeVO> selectAll();
+	List<EmployeeVO> selectAll(PageVO pageVO);
 	
 	/** 
 	 * 직원 정보 가져오는 메소드

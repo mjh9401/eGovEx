@@ -1,94 +1,60 @@
 package com.mvst.edu.vo;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class PageVO {
-	// 현재페이지
-	private int pageIndex = 1;
-	// 페이지갯수
-	private int pageUnit = 10;
-	// 페이지사이즈
-	private int pageSize = 10;
-	// firstIndex
-	private int firstIndex = 1;
-	// recordCountPerpage
-	private int recordCountPerPage = 10;
-	// 총갯수
-	private int totCnt = 0;
-	// 시작데이터
-	private int startData =0;
-	// 종료데이터
-	private int endData = 0;
-	// 페이징 마지막 숫자
-	private int realEnd = 0;
-	// 이전, 다음버튼
-	private boolean xprev,xnext;
 	
-	public int getPageIndex() {
-		return pageIndex;
-	}
-	public void setPageIndex(int pageIndex) {
-		this.pageIndex = pageIndex;
-	}
-	public int getPageUnit() {
-		return pageUnit;
-	}
-	public void setPageUnit(int pageUnit) {
-		this.pageUnit = pageUnit;
-	}
-	public int getPageSize() {
-		return pageSize;
-	}
-	public void setPageSize(int pageSize) {
-		this.pageSize = pageSize;
-	}
-	public int getFirstIndex() {
-		return firstIndex;
-	}
-	public void setFirstIndex(int firstIndex) {
-		this.firstIndex = firstIndex;
-	}
-	public int getRecordCountPerPage() {
-		return recordCountPerPage;
-	}
-	public void setRecordCountPerPage(int recordCountPerPage) {
-		this.recordCountPerPage = recordCountPerPage;
-	}
-	public int getTotCnt() {
-		return totCnt;
-	}
-	public void setTotCnt(int totCnt) {
-		this.totCnt = totCnt;
-	}
-	public int getStartData() {
-		return startData;
-	}
-	public void setStartData(int startData) {
-		this.startData = startData;
-	}
-	public int getEndData() {
-		return endData;
-	}
-	public void setEndData(int endData) {
-		this.endData = endData;
-	}
-	public int getRealEnd() {
-		return realEnd;
-	}
-	public void setRealEnd(int realEnd) {
-		this.realEnd = realEnd;
-	}
-	public boolean isXprev() {
-		return xprev;
-	}
-	public void setXprev(boolean xprev) {
-		this.xprev = xprev;
-	}
-	public boolean isXnext() {
-		return xnext;
-	}
-	public void setXnext(boolean xnext) {
-		this.xnext = xnext;
-	}
+	// 시작 페이지
+	private int startPage = 1;
+	// 마지막 페이지
+	private int endPage = 10;
+	// 페이징 SQL 조건절 시작 index
+	private int limitStart = 0;
+	// 한 페이지 당 게시되는 게시글 수
+	private int articlePerAPage = 10;
+	// 전체 게시글 수
+	private int totalArticleCount;
+	// 전체 페이지 수
+	private int totalPageCount;
 	
+	
+	public int getStartPage() {
+		return startPage; 
+	}
+	public void setStartPage(int startPage) {
+		this.startPage = startPage;
+	}
+	public int getEndPage() {
+		return endPage;
+	}
+	public void setEndPage(int endPage) {
+		this.endPage = endPage;
+	}
+	public int getLimitStart() {
+		return limitStart;
+	}
+	public void setLimitStart(int limitStart) {
+		this.limitStart = limitStart;
+	}
+	public int getArticlePerAPage() {
+		return articlePerAPage;
+	}
+	public void setArticlePerAPage(int articlePerAPage) {
+		this.articlePerAPage = articlePerAPage;
+	}
+	public int getTotalArticleCount() {
+		return totalArticleCount;
+	}
+	public void setTotalArticleCount(int totalArticleCount) {
+		this.totalArticleCount = totalArticleCount;
+	}
+	public int getTotalPageCount() {
+		return totalPageCount;
+	}
+	public void setTotalPageCount(int totalPageCount) {
+		this.totalPageCount = totalPageCount;
+	}
 	
 	
 }

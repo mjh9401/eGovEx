@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.mvst.edu.dao.EmployeeDAO;
 import com.mvst.edu.service.EmployeeService;
 import com.mvst.edu.vo.EmployeeVO;
+import com.mvst.edu.vo.PageVO;
 
 /** 
  * EmployeeService 구현체
@@ -29,10 +30,9 @@ public class EmployeeServiceImpl implements EmployeeService {
 	}
 
 	@Override
-	public List<EmployeeVO> selectAll() {
+	public List<EmployeeVO> selectAll(PageVO pageVO) {
 		
-		
-		List<EmployeeVO> employeeList = employeeDao.selectAll();
+		List<EmployeeVO> employeeList = employeeDao.selectAll(pageVO);
 		
 		return employeeList;
 	}

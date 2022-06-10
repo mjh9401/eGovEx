@@ -7,9 +7,11 @@ import javax.annotation.Resource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.mvst.edu.service.EmployeeService;
 import com.mvst.edu.vo.EmployeeVO;
+import com.mvst.edu.vo.PageVO;
 
 /**
  * 직원컨트롤러
@@ -22,7 +24,7 @@ public class EmployeeController {
 	//Logger logger = LogManager.getLogger();
 	/** EmployeeService */
 	@Resource(name = "EmployeeService")
-	private EmployeeService EmployeeService;
+	private EmployeeService employeeService;
 
 
 	/**
@@ -33,7 +35,7 @@ public class EmployeeController {
 	 */
 	@RequestMapping("/employee/getEmployee")
 	public String searchEmployeeByIdx(Model model, int idx) {
-		EmployeeVO employeeVO = EmployeeService.selectByPK(idx);
+		EmployeeVO employeeVO = employeeService.selectByPK(idx);
 		model.addAttribute("employee", employeeVO);
 
 		return "employee/detail";
@@ -45,10 +47,32 @@ public class EmployeeController {
 	 * @return view
 	 */
 	@RequestMapping("/employee/getEmployeeList")
-	public String employeeListSearchByIdx(Model model) {
-	
-		List<EmployeeVO> employeeList = EmployeeService.selectAll();
+	public String employeeListSearchByIdx(Model model,PageVO pageVO) {
+		// 전체 게시글 수
+		int totalArticleCount = employeeService.getEmployeeCount();
+		// 전체 페이지 수
+		int totalPage = (int) Math.ceil((double)totalArticleCount / pageVO.getArticlePerAPage());
+		// endPage
+		pageVO.setTotalPageCount(totalPage);
+		// 표시될 게시물
+		List<EmployeeVO> employeeList = employeeService.selectAll(pageVO);
+		
+		
+		if(pageVO.getLimitStart() >= 100 ) {
+			if(pageVO.getLimitStart() % 100 == 0) {
+				int startPage = pageVO.getStartPage();
+				int endPage = pageVO.getEndPage();
+				pageVO.setStartPage(startPage+10);
+				pageVO.setEndPage(endPage+10);
+			}			
+		}
+		
 		model.addAttribute("employeeList", employeeList);
+		model.addAttribute("pageVO", pageVO);
+		
+		System.out.println("리미트 값 : "+pageVO.getLimitStart());
+		System.out.println("시작페이지 : "+pageVO.getStartPage());
+		System.out.println("끝페이지 : "+pageVO.getEndPage());
 		
 		return "employee/list";
 	}
@@ -61,7 +85,7 @@ public class EmployeeController {
 	 */
 	@RequestMapping("/employee/getEmployeeByDep")
 	public String searchEmployeeByDepid(Model model,int deptId) {
-		List<EmployeeVO> employeeList = EmployeeService.selectByDep(deptId);
+		List<EmployeeVO> employeeList = employeeService.selectByDep(deptId);
 
 		model.addAttribute("employeeList", employeeList);
 
@@ -88,7 +112,7 @@ public class EmployeeController {
 	 */
 	@RequestMapping("/employee/insertEmployee")
 	public String insertEmployee(Model model,EmployeeVO employeeVO){
-		int resultInsertNumber = EmployeeService.insertEmployee(employeeVO);
+		int resultInsertNumber = employeeService.insertEmployee(employeeVO);
 		
 		if(resultInsertNumber > 0) {
 			model.addAttribute("resultInesrtNumber", resultInsertNumber);
@@ -120,7 +144,7 @@ public class EmployeeController {
 	 */
 	@RequestMapping("/employee/updateEmployee")
 	public String updateEmployee(Model model,EmployeeVO employeeVO){
-		int resultUpdateNumber = EmployeeService.updateEmployee(employeeVO);
+		int resultUpdateNumber = employeeService.updateEmployee(employeeVO);
 		
 		if(resultUpdateNumber > 0) {
 			model.addAttribute("resultUpdateNumber", resultUpdateNumber);
@@ -139,7 +163,7 @@ public class EmployeeController {
 	 */
 	@RequestMapping("/employee/deleteEmployee")
 	public String deleteEmployee(Model model,EmployeeVO employeeVO){
-		int resultDeleteNumber= EmployeeService.delteEmployee(employeeVO);
+		int resultDeleteNumber= employeeService.delteEmployee(employeeVO);
 
 		if(resultDeleteNumber > 0) {
 			model.addAttribute("resultDeleteNumber", resultDeleteNumber);

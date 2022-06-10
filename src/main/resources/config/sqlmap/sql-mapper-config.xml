@@ -15,6 +15,9 @@
 		<!-- 회원 VO -->
 		<typeAlias alias="memberVO" type="com.mvst.edu.vo.MemberVO"/>
 		<!-- 직원 VO --> 
-		<typeAlias alias="employeeVO" type="com.mvst.edu.vo.EmployeeVO"/> 		
+		<typeAlias alias="employeeVO" type="com.mvst.edu.vo.EmployeeVO"/>
+		<!-- 페이지 VO --> 	
+		<typeAlias alias="pageVO" type="com.mvst.edu.vo.PageVO"/>
+			
     </typeAliases>
 </configuration>

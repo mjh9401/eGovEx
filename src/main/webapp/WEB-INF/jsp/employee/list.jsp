@@ -33,9 +33,9 @@
 	.title{
 		text-align: center;
 	}
-	.btngroup{
-		width:600px;
-		
+	.paging-box{
+		width: 250px;
+		margin: 0 auto;
 	}
 	button{
 		margin-top: 20px;
@@ -75,7 +75,22 @@
 				</tr>			
 			</c:forEach>
 		</table>
+		
+		<!-- 페이징 -->
+		<div class="paging-box">
+			<c:if test="${pageVO.limitStart >= 10}">
+				<a href="?limitStart=${pageVO.limitStart-10}">이전</a>
+			</c:if>
 			
+			<c:forEach begin="${pageVO.startPage}" end="${pageVO.endPage}" var="i">
+				<a href="?limitStart=${(i-1)*10}">${i}</a>
+			</c:forEach>
+			
+			<c:if test="${pageVO.limitStart < (pageVO.totalPageCount*10)-10}">
+				<a href="?limitStart=${pageVO.limitStart +10}">다음</a>				
+			</c:if>
+		</div>
+		
 		<button onclick="location.href='/fmis/employee/showInsertingEmployee.do'">직원정보추가</button>
 	</div>
 </body>
