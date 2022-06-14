@@ -78,16 +78,18 @@
 		
 		<!-- 페이징 -->
 		<div class="paging-box">
-			<c:if test="${pageVO.limitStart >= 10}">
-				<a href="?limitStart=${pageVO.limitStart-10}">이전</a>
+			<c:set var="endPage" value="${pageVO.endPage <= pageVO.totalPageCount ? pageVO.endPage : pageVO.totalPageCount}"/>
+
+			<c:if test="${pageVO.limitStart >= 100}">
+				<a href="?limitStart=${pageVO.limitStart-100}">이전</a>
 			</c:if>
-			
-			<c:forEach begin="${pageVO.startPage}" end="${pageVO.endPage}" var="i">
+								
+			<c:forEach begin="${pageVO.startPage}" end="${endPage}" var="i">
 				<a href="?limitStart=${(i-1)*10}">${i}</a>
 			</c:forEach>
 			
 			<c:if test="${pageVO.limitStart < (pageVO.totalPageCount*10)-10}">
-				<a href="?limitStart=${pageVO.limitStart +10}">다음</a>				
+				<a href="?limitStart=${pageVO.limitStart +100}">다음</a>				
 			</c:if>
 		</div>
 		

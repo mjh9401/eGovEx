@@ -7,7 +7,6 @@ import javax.annotation.Resource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import com.mvst.edu.service.EmployeeService;
 import com.mvst.edu.vo.EmployeeVO;
@@ -44,6 +43,7 @@ public class EmployeeController {
 	/**
 	 * 전체 직원정보를 가져오는 메소드
 	 * @param model 모델
+	 * @param pageVO 페이지VO
 	 * @return view
 	 */
 	@RequestMapping("/employee/getEmployeeList")
@@ -57,22 +57,16 @@ public class EmployeeController {
 		// 표시될 게시물
 		List<EmployeeVO> employeeList = employeeService.selectAll(pageVO);
 		
-		
-		if(pageVO.getLimitStart() >= 100 ) {
-			if(pageVO.getLimitStart() % 100 == 0) {
-				int startPage = pageVO.getStartPage();
-				int endPage = pageVO.getEndPage();
-				pageVO.setStartPage(startPage+10);
-				pageVO.setEndPage(endPage+10);
-			}			
+		if(pageVO.getLimitStart()/100 > 0) {
+			int stargPage = (pageVO.getLimitStart()/10)+1;
+			int endPage = pageVO.getLimitStart()/10+10;
+					
+			pageVO.setStartPage(stargPage);
+			pageVO.setEndPage(endPage);
 		}
 		
 		model.addAttribute("employeeList", employeeList);
 		model.addAttribute("pageVO", pageVO);
-		
-		System.out.println("리미트 값 : "+pageVO.getLimitStart());
-		System.out.println("시작페이지 : "+pageVO.getStartPage());
-		System.out.println("끝페이지 : "+pageVO.getEndPage());
 		
 		return "employee/list";
 	}

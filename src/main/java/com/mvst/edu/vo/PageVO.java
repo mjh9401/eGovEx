@@ -1,23 +1,19 @@
 package com.mvst.edu.vo;
 
-import org.springframework.stereotype.Component;
-
-@Component
 public class PageVO {
 	
 	// 시작 페이지
 	private int startPage = 1;
 	// 마지막 페이지
 	private int endPage = 10;
-	// 페이징 SQL 조건절 시작 index
-	private int limitStart = 0;
 	// 한 페이지 당 게시되는 게시글 수
 	private int articlePerAPage = 10;
+	// 페이징 SQL 조건절 시작 index
+	private int limitStart;
 	// 전체 게시글 수
 	private int totalArticleCount;
 	// 전체 페이지 수
 	private int totalPageCount;
-	
 	
 	public int getStartPage() {
 		return startPage; 
